@@ -1,0 +1,80 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>New Item</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="80" class="form-control" name="name"placeholder="Name of the vehicle">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the vehicle"></textarea>
+
+					<label for="capacity">Capacity:</label>
+					<input type ="text" maxlength="8" class="form-control" name="name"placeholder="Capacity of the vehicle">
+
+					<label for="fuelType">Fuel Type:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="fuelType" id="fuelType1" value="Petrol">Petrol
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="fuelType" id="fuelType2" value="Diesel">Diesel
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="fuelType" id="fuelType3" value="LOX">LOX
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="fuelType" id="fuelType4" value="Bio">Bio
+					  </label>
+					</div>
+					<div class="radio">
+							<label>
+								<input type="radio" name="fuelType" id="fuelType5" value="Other">Other
+							</label>
+						</div>
+
+						<label for="mileage">Mileage:</label>
+						<div class="input-group">
+							<div class="input-group-addon">$</div>
+							<input type ="text" class="form-control" maxlength="10" name="mileage" placeholder="Mileage in miles">
+						</div>
+
+						<label for="maxSpeed">Max Speed:</label>
+						<div class="input-group">
+							<div class="input-group-addon">$</div>
+							<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Max Speed in miles/hour">
+						</div>
+
+						<label for="price">Price:</label>
+						<div class="input-group">
+							<div class="input-group-addon">$</div>
+							<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $">
+						</div>
+
+
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}
