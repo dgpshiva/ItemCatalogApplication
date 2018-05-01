@@ -38,7 +38,6 @@ def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
     login_session['state'] = state
-    # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
 
@@ -298,22 +297,22 @@ def editItem(category_id, item_id):
         if request.form['name']:
             editedItem.name = request.form['name']
         if request.form['description']:
-        editedItem.capacity = request.form['description']
+            editedItem.capacity = request.form['description']
         if request.form['capacity']:
-        editedItem.mileage = request.form['capacity']
+            editedItem.mileage = request.form['capacity']
         if request.form['fuelType']:
-        editedItem.description = request.form['fuelType']
+            editedItem.description = request.form['fuelType']
         if request.form['mileage']:
-        editedItem.description = request.form['mileage']
+            editedItem.description = request.form['mileage']
         if request.form['maxSpeed']:
-        editedItem.description = request.form['maxSpeed']
+            editedItem.description = request.form['maxSpeed']
         if request.form['price']:
             editedItem.price = request.form['price']
 
         session.add(editedItem)
         session.commit()
         flash('Item Successfully Edited')
-        return redirect(url_for('showItem', category_id=category_id))
+        return redirect(url_for('showItems', category_id=category_id))
     else:
         return render_template('edititem.html', category_id=category_id, item_id=item_id, item=editedItem)
 
