@@ -109,9 +109,9 @@ def gconnect():
 
     data = answer.json()
 
-    login_session['name'] = data['name']
-    login_session['picture'] = data['picture']
+    login_session['username'] = data['name']
     login_session['email'] = data['email']
+    login_session['picture'] = data['picture']
 
     # See if a user exists, if it doesn't make a new one
     user_id = getUserID(login_session['email'])
@@ -121,12 +121,12 @@ def gconnect():
 
     output = ''
     output += '<h1>Welcome, '
-    output += login_session['name']
+    output += login_session['username']
     output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
-    flash("you are now logged in as %s" % login_session['name'])
+    flash("you are now logged in as %s" % login_session['username'])
     print "done!"
     return output
 
@@ -134,7 +134,7 @@ def gconnect():
 
 # User Helper Functions
 def createUser(login_session):
-    newUser = User(name=login_session['name'],
+    newUser = User(name=login_session['username'],
     email=login_session['email'], picture=login_session['picture'])
     session.add(newUser)
     session.commit()
@@ -158,6 +158,7 @@ def getUserID(email):
 def gdisconnect():
     # Only disconnect a connected user.
     access_token = login_session.get('access_token')
+    print access_token
     if access_token is None:
         response = make_response(
             json.dumps('Current user not connected.'), 401)
@@ -171,7 +172,7 @@ def gdisconnect():
         # Reset the user's sesson.
         del login_session['access_token']
         del login_session['gplus_id']
-        del login_session['name']
+        del login_session['username']
         del login_session['email']
         del login_session['picture']
 
