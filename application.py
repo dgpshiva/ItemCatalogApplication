@@ -25,7 +25,8 @@ APPLICATION_NAME = "Item Catalog Application"
 
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///transportitemswithusers.db')
+engine = create_engine('sqlite:///transportitemswithusers.db',
+    connect_args={'check_same_thread':False})
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -153,12 +154,12 @@ def getUserID(email):
         return None
 
 
+
 # DISCONNECT - Revoke a current user's token and reset their login_session
 @app.route('/gdisconnect')
 def gdisconnect():
     # Only disconnect a connected user.
     access_token = login_session.get('access_token')
-    print access_token
     if access_token is None:
         response = make_response(
             json.dumps('Current user not connected.'), 401)
@@ -238,7 +239,6 @@ def deleteCategory(category_id):
     categoryToDelete = session.query(
         Category).filter_by(id=category_id).one()
     if categoryToDelete.user_id != login_session['user_id']:
-        print "In here"
         return "<script>function myFunction() {alert('You are not authorized to delete this category. Please create your own category to delete.');}</script><body onload='myFunction()''>''"
     if request.method == 'POST':
         session.delete(categoryToDelete)
@@ -247,7 +247,6 @@ def deleteCategory(category_id):
         return redirect(url_for('showCategories'))
     else:
         return render_template('deletecategory.html', category=categoryToDelete)
-
 
 
 # Show an item

@@ -21,7 +21,7 @@
 					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the vehicle"></textarea>
 
 					<label for="capacity">Capacity:</label>
-					<input type ="text" maxlength="8" class="form-control" name="name"placeholder="Capacity of the vehicle">
+					<input type ="text" maxlength="8" class="form-control" name="capacity"placeholder="Capacity of the vehicle">
 
 					<label for="fuelType">Fuel Type:</label>
 					<div class="radio">
@@ -48,33 +48,28 @@
 							<label>
 								<input type="radio" name="fuelType" id="fuelType5" value="Other">Other
 							</label>
-						</div>
+					</div>
 
-						<label for="mileage">Mileage:</label>
-						<div class="input-group">
-							<div class="input-group-addon">$</div>
-							<input type ="text" class="form-control" maxlength="10" name="mileage" placeholder="Mileage in miles">
-						</div>
+					<label for="mileage">Mileage:</label>
+					<input type ="text" maxlength="8" class="form-control" name="mileage"placeholder="Mileage of the vehicle">
 
-						<label for="maxSpeed">Max Speed:</label>
-						<div class="input-group">
-							<div class="input-group-addon">$</div>
-							<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Max Speed in miles/hour">
-						</div>
+					<label for="maxSpeed">Max Speed:</label>
+					<input type ="text" maxlength="8" class="form-control" name="maxSpeed"placeholder="Max Speed of the vehicle">
 
-						<label for="price">Price:</label>
-						<div class="input-group">
-							<div class="input-group-addon">$</div>
-							<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $">
-						</div>
+					<label for="price">Price:</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="text" class="form-control" maxlength="16" name="price" placeholder="Price in $">
+					</div>
 
 
-					<button type="submit" class="btn btn-default" id="submit" type="submit">
-					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
-				</div>
-			</form>
-		</div>
+				<button type="submit" class="btn btn-default" id="submit" type="submit">
+				<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+			</div>
+		</form>
 	</div>
+</div>
 
 
 {% endblock %}
+
