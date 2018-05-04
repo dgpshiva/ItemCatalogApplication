@@ -1,0 +1,49 @@
+picture, img, embed, object, video {
+    max-width: 100%;
+    }
+
+img{
+    display: block;
+    margin: auto;
+}
+
+.inline-block
+{
+    display: inline-block;
+}
+
+.header-container
+{
+    height: 85px;
+    background-color: rgb(13, 13, 70);
+    display: flex;
+    align-items: center
+}
+
+.header-container h1
+{
+    color: white;
+    font-size: 25px;
+    margin: 2px;
+    width: 50%;
+}
+
+.header-container form
+{
+    margin: 0;
+    width: 50%;
+}
+
+.header-container form button
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+    margin-right: 6px;
+}
+

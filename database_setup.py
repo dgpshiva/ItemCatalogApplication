@@ -1,4 +1,3 @@
-from passlib.apps import custom_app_context as pwd_context
 from sqlalchemy import create_engine
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
