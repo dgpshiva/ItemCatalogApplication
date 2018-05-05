@@ -10,4 +10,28 @@
 	</div>
 </header>
 
+<section class="tiles">
+
+	<article class="artcles-iterate style1">
+		<span class="image">
+			<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
+		</span>
+		<a href="">
+			<h2>Latest Items</h2>
+		</a>
+	</article>
+
+	{% for category in categories %}
+		<article class="artcles-iterate style2">
+			<span class="image">
+				<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
+			</span>
+			<a href="">
+				<h2>{{category.name}}</h2>
+			</a>
+		</article>
+	{% endfor %}
+
+</section>
+
 {% endblock %}
