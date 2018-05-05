@@ -2,17 +2,25 @@
 {% block content %}
 
 <!-- GOOGLE PLUS SIGN IN-->
-<div id="signinButton">
-  <span class="g-signin"
-    data-scope="openid email"
-    data-clientid="155175823904-ldclo10df9hantridd8q0gpmh40c5dv7.apps.googleusercontent.com"
-    data-redirecturi="postmessage"
-    data-accesstype="offline"
-    data-cookiepolicy="single_host_origin"
-    data-callback="signInCallback"
-    data-approvalprompt="force">
-  </span>
+<div class="signin-cancel-buttons-viewport">
+  <div class="signin-cancel-buttons-container">
+    <div id="signinButton">
+      <span class="g-signin"
+        data-scope="openid email"
+        data-clientid="155175823904-ldclo10df9hantridd8q0gpmh40c5dv7.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback"
+        data-approvalprompt="force">
+      </span>
+    </div>
+    <form action="{{url_for('showCategories')}}">
+        <button type="submit">Cancel</button>
+    </form>
 </div>
+</div>
+
 
 <div id="result"></div>
 
