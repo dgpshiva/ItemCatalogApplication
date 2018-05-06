@@ -1,3 +1,4 @@
+/* Generic */
 picture, embed, object, video {
     max-width: 100%;
     }
@@ -7,6 +8,8 @@ picture, embed, object, video {
     display: inline-block;
 }
 
+
+/* Header */
 .header-container
 {
     height: 85px;
@@ -31,17 +34,11 @@ picture, embed, object, video {
 
 .header-container form button
 {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
     float: right;
-    margin-right: 6px;
 }
 
+
+/* Sign in page */
 .signin-cancel-buttons-viewport
 {
     height: 100vh;
@@ -57,6 +54,25 @@ picture, embed, object, video {
 
 .signin-cancel-buttons-container form button
 {
+    width: 100%;
+}
+
+
+/* Buttons */
+.green-button
+{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.red-button
+{
     background-color: #f44336;
     border: none;
     color: white;
@@ -65,46 +81,86 @@ picture, embed, object, video {
     text-decoration: none;
     font-size: 16px;
     margin-right: 6px;
-    width: 100%;
 }
 
-.categories-container
+.blue-button
 {
-    height: 100vh;;
-    min-height: 100%;
-}
-
-.latest-items-tile
-{
-    float: left;
-    width: 40%;
-    height: 30%;
-    background-color: red;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 6px 16px;
     text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+
+/* Add New Category */
+.add-new-category-header
+{
+    height: 45px;
+    background-color: rgba(94, 12, 94, 0.952);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
-
 }
 
-.latest-items-tile h3
+.new-category-header
+{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(94, 12, 94, 0.952);
+}
+
+.new-category-header h2
 {
     margin: 0;
     color: white;
 }
 
-.category-tile
+.new-category-form
 {
-    float: left;
-    width: 40%;
-    height: 40%;
-    background-color: blue;
+    margin-top: 40px;
+}
+
+.new-category-form form
+{
+    width: 100%;
+}
+
+.new-category-form form h3
+{
+    margin-left: 10px;
+}
+
+.new-category-form-input
+{
+    display: flex;
+    align-items: center;
+}
+
+.new-category-form-input input
+{
+    margin: 0 10px 0 10px;
+}
+
+.new-category-form form button
+{
+    margin: 10px 0 0 10px;
 }
 
 
+/* Form control */
+.form-control
+{
+    width: 50%;
+}
 
 
+/* Tile */
 .tiles {
     display: -moz-flex;
     display: -webkit-flex;

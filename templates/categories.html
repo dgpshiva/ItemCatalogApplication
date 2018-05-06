@@ -1,57 +1,42 @@
 {% extends "main.html" %}
 {% block content %}
-{% include "header.html" %}
 
-	<div class="row top-menu">
-		<div class="col-md-10"></div>
-		<div class="col-md-2 text-right">
-					</div>
+<header>
+	<div class="header-container">
+		<h1 class="inline-block">Catalog App</h1>
+		<form class="inline-block" action="{{url_for('gdisconnect')}}">
+			<button class="red-button" type="submit">Logout</button>
+		</form>
 	</div>
-	<div class="row divider blue">
-		<div class="col-md-12"></div>
+	<div class="add-new-category-header">
+		<form class="inline-block" action="{{url_for('newCategory')}}">
+			<button class="green-button" type="submit">Add New Category</button>
+		</form>
 	</div>
-	<div class="row banner main">
-		<div class="col-md-1"></div>
-		<div class="col-md-11 padding-none">
-			<h1>Categories</h1>
-		</div>
-	</div>
+</header>
 
-	<div class = 'flash'>
-				{% with messages = get_flashed_messages() %}
-		{% if messages %}
-			<ul>
-			{% for message in messages %}
-				<li> <strong> {{ message }} </strong> </li>
-			{% endfor %}
-			</ul>
-			{% endif %}
-		{% endwith %}
-	</div>
+<section class="tiles">
 
-	<div class="row padding-top padding-bottom">
-		<div class="col-md-1"></div>
-		<div class="col-md-10 padding-none">
-			<a href="{{url_for('newCategory')}}">
-				<button class="btn btn-default" id="new-category">
-					<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Add Category
-				</button>
-			</a>
-		</div>
-		<div class="col-md-1"></div>
-	</div>
-	{% for category in categories %}
-		<a href = "{{url_for('showItems', category_id = category.id)}}">
-			<div class="row">
-				<div class="col-md-1"></div>
-					<div class="col-md-10 category-list">
-						<h3>{{category.name}}</h3>
-					</div>
-				<div class="col-md-1"></div>
-			</div>
+	<article class="artcles-iterate style1">
+		<span class="image">
+			<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
+		</span>
+		<a href="">
+			<h2>Latest Items</h2>
 		</a>
+	</article>
 
-
+	{% for category in categories %}
+		<article class="artcles-iterate style2">
+			<span class="image">
+				<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
+			</span>
+			<a href="">
+				<h2>{{category.name}}</h2>
+			</a>
+		</article>
 	{% endfor %}
+
+</section>
 
 {% endblock %}

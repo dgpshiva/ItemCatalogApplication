@@ -127,7 +127,7 @@ def gconnect():
     output += '<img src="'
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
-    flash("you are now logged in as %s" % login_session['username'])
+    # flash("you are now logged in as %s" % login_session['username'])
     print "done!"
     return output
 
@@ -178,9 +178,10 @@ def gdisconnect():
         del login_session['email']
         del login_session['picture']
 
-        response = make_response(json.dumps('Successfully disconnected.'), 200)
-        response.headers['Content-Type'] = 'application/json'
-        return response
+        return redirect(url_for('showCategories'))
+        # response = make_response(json.dumps('Successfully disconnected.'), 200)
+        # response.headers['Content-Type'] = 'application/json'
+        # return response
     else:
         # For whatever reason, the given token was invalid.
         response = make_response(
@@ -209,7 +210,7 @@ def newCategory():
         newCategory = Category(
             name=request.form['name'], user_id=login_session['user_id'])
         session.add(newCategory)
-        flash('New Category %s Successfully Created' % newCategory.name)
+        # flash('New Category %s Successfully Created' % newCategory.name)
         session.commit()
         return redirect(url_for('showCategories'))
     else:
@@ -228,7 +229,7 @@ def editCategory(category_id):
     if request.method == 'POST':
         if request.form['name']:
             editedCategory.name = request.form['name']
-            flash('Category Successfully Edited %s' % editedCategory.name)
+            # flash('Category Successfully Edited %s' % editedCategory.name)
             return redirect(url_for('showCategories'))
     else:
         return render_template('editcategory.html', category=editedCategory)
@@ -245,7 +246,7 @@ def deleteCategory(category_id):
         return "<script>function myFunction() {alert('You are not authorized to delete this category. Please create your own category to delete.');}</script><body onload='myFunction()''>''"
     if request.method == 'POST':
         session.delete(categoryToDelete)
-        flash('%s Successfully Deleted' % categoryToDelete.name)
+        # flash('%s Successfully Deleted' % categoryToDelete.name)
         session.commit()
         return redirect(url_for('showCategories'))
     else:
@@ -283,7 +284,7 @@ def newItem(category_id):
                         category_id=category_id, user_id=category.user_id)
         session.add(newItem)
         session.commit()
-        flash('New Item %s Successfully Created' % (newItem.name))
+        # flash('New Item %s Successfully Created' % (newItem.name))
         return redirect(url_for('showItems', category_id=category_id))
     else:
         return render_template('newitem.html', category_id=category_id)
@@ -317,7 +318,7 @@ def editItem(category_id, item_id):
 
         session.add(editedItem)
         session.commit()
-        flash('Item Successfully Edited')
+        # flash('Item Successfully Edited')
         return redirect(url_for('showItems', category_id=category_id))
     else:
         return render_template('edititem.html', category_id=category_id, item_id=item_id, item=editedItem)
@@ -334,7 +335,7 @@ def deleteItem(category_id, item_id):
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
-        flash('Item Successfully Deleted')
+        # flash('Item Successfully Deleted')
         return redirect(url_for('showItems', category_id=category_id))
     else:
         return render_template('deleteitem.html', item=itemToDelete)
