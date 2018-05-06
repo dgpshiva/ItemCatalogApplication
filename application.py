@@ -162,10 +162,7 @@ def gdisconnect():
     access_token = login_session.get('access_token')
     print access_token
     if access_token is None:
-        response = make_response(
-            json.dumps('Current user not connected.'), 401)
-        response.headers['Content-Type'] = 'application/json'
-        return response
+        return redirect(url_for('showCategories'))
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
@@ -253,7 +250,7 @@ def deleteCategory(category_id):
         return render_template('deletecategory.html', category=categoryToDelete)
 
 
-# Show an item
+# Show items of a category
 @app.route('/v1/categories/<int:category_id>/')
 @app.route('/v1/categories/<int:category_id>/items/')
 def showItems(category_id):
@@ -265,6 +262,18 @@ def showItems(category_id):
         return render_template('publicitems.html', items=items, category=category, creator=creator)
     else:
         return render_template('items.html', items=items, category=category, creator=creator)
+
+
+# Show an item
+@app.route('/v1/categories/<int:category_id>/items/<int:item_id>')
+def showItemDetails(category_id, item_id):
+    category = session.query(Category).filter_by(id=category_id).one()
+    creator = getUserInfo(category.user_id)
+    item = session.query(Item).filter_by(id=item_id).one()
+    if 'username' not in login_session or creator.id != login_session['user_id']:
+        return render_template('publicitemdetails.html', item=item, category=category, creator=creator)
+    else:
+        return render_template('itemdetails.html', item=item, category=category, creator=creator)
 
 
 # Create a new item

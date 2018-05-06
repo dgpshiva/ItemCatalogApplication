@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% block content %}
+
+<header>
+    <div class="header-container">
+        <h1 class="inline-block">Catalog App</h1>
+        <form class="inline-block" action="{{url_for('showLogin')}}">
+            <button class="green-button" type="submit">Login</button>
+        </form>
+    </div>
+    <div class="sub-header">
+        <h2>{{category.name}}</h2>
+    </div>
+</header>
+<div class="creator-header">
+    <h3>Creator:</h3>
+</div>
+<figure class="creator-info">
+    <img src="{{ creator.picture}}">
+    <div class="creator-name">
+        <figcaption>{{ creator.name }}</figcaption>
+    </div>
+</figure>
+
+<div class="item-details">
+    <div class="item-name-header">
+        <h3>{{item.name}}</h3>
+    </div>
+    <h4>Item Description:</h4>
+    <p>{{item.description}}</p>
+    <br>
+    <h4>Item Capacity:</h4>
+    <p>{{item.capacity}} people</p>
+    <br>
+    <h4>Item Fuel Type:</h4>
+    <p>{{item.fuelType}}</p>
+    <br>
+    <h4>Item Mileage:</h4>
+    <p>{{item.mileage}} miles</p>
+    <br>
+    <h4>Item Max Speed:</h4>
+    <p>{{item.maxSpeed}} mph</p>
+    <br>
+    <h4>Item Price:</h4>
+    <p>{{item.price}} $</p>
+</div>
+{% endblock %}

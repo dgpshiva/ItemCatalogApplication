@@ -1,0 +1,39 @@
+<header>
+    <div class="header-container">
+        <h1 class="inline-block">Catalog App</h1>
+        <form class="inline-block" action="{{url_for('showLogin')}}">
+            <button class="green-button" type="submit">Login</button>
+        </form>
+    </div>
+    <div class="sub-header">
+        <h2>{{category.name}}</h2>
+    </div>
+</header>
+<div class="creator-header">
+    <h3>Creator:</h3>
+</div>
+<figure class="creator-info">
+    <img src="{{ creator.picture}}">
+    <figcaption>{{ creator.name }}</figcaption>
+</figure>
+
+
+{% if items !=[] %}
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <h2>Items</h2>
+                {% for i in items %}
+                    <div class="item">
+                        <h3>{{i.name}}</h3>
+                        <p>{{i.description}}</p>
+                        <p>{{i.capacity}}</p>
+                        <p>{{i.fuelType}}</p>
+                        <p>{{i.mileage}}</p>
+                        <p>{{i.maxSpeed}}</p>
+                        <p class="item-price">{{i.price}}</p>
+                    </div>
+                {% endfor %}
+        </div>
+        <div class="col-md-1"></div>
+    </div>

@@ -12,7 +12,7 @@ picture, embed, object, video {
 /* Header */
 .header-container
 {
-    height: 85px;
+    height: 65px;
     background-color: rgb(13, 13, 70);
     display: flex;
     align-items: center
@@ -22,20 +22,106 @@ picture, embed, object, video {
 {
     color: white;
     font-size: 25px;
-    margin: 2px;
-    width: 50%;
+    margin-left: 2px;
+    width: 70%;
 }
 
 .header-container form
 {
-    margin: 0;
-    width: 50%;
+    margin-right: 5px;
+    width: 30%;
 }
 
 .header-container form button
 {
     float: right;
 }
+
+/* Sub Header */
+.sub-header
+{
+    height: 35px;
+    background-color: rgba(94, 12, 94, 0.952);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header h2
+{
+    margin: 0;
+    font-size: 25px;
+}
+
+/* Creator info */
+.creator-header
+{
+    display: flex;
+    align-items: center;
+    margin: 0 0 2px 0;
+    width: 100%;
+    height: 20px;
+    background-color: lightblue;
+}
+
+.creator-header h3
+{
+    margin: 0 0 0 2px;
+    font-size: 15px;
+}
+
+.creator-info
+{
+    position: relative;
+}
+
+.creator-info img
+{
+    height: 25%;
+    width: 25%;
+    margin-bottom: 2px;
+}
+
+.creator-name
+{
+    background-color: lightgreen;
+    height: 20px;
+}
+
+.creator-info figcaption
+{
+    font-size: 15px;
+    margin-left: 2px;
+}
+
+
+/* Item details */
+.item-name-header
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: yellow;
+}
+
+.item-name-header h3
+{
+    margin: 0 0 0 2px;
+}
+
+.item-details h4
+{
+    margin-left: 2px;
+}
+
+.item-details p
+{
+    margin-left: 2px;
+}
+
 
 
 /* Sign in page */
@@ -97,24 +183,6 @@ picture, embed, object, video {
 
 
 /* Add New Category */
-.add-new-category-header
-{
-    height: 45px;
-    background-color: rgba(94, 12, 94, 0.952);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.new-category-header
-{
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(94, 12, 94, 0.952);
-}
-
 .new-category-header h2
 {
     margin: 0;

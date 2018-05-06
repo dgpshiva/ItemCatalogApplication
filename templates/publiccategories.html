@@ -26,7 +26,7 @@
 			<span class="image">
 				<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
 			</span>
-			<a href="">
+			<a href="{{url_for('showItems', category_id = category.id)}}">
 				<h2>{{category.name}}</h2>
 			</a>
 		</article>
