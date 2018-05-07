@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+
+<header>
+	<div class="header-container">
+		<h1 class="inline-block">Catalog App</h1>
+		<form class="inline-block" action="{{url_for('gdisconnect')}}">
+			<button class="red-button" type="submit">Logout</button>
+		</form>
+	</div>
+</header>
+
+<section class="tiles">
+
+	{% for item in items %}
+		<article class="artcles-iterate style2">
+			<span class="image">
+				<img src="{{ url_for('static', filename='pic05.jpg') }}" alt>
+			</span>
+			<a href="{{url_for('showItemDetails', category_id = category.id, item_id = item.id)}}">
+				<h2>{{item.name}}</h2>
+			</a>
+		</article>
+	{% endfor %}
+
+</section>
+
+{% endblock %}

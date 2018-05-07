@@ -198,6 +198,16 @@ def showCategories():
         return render_template('categories.html', categories=categories)
 
 
+# Show latest items in db
+@app.route('/v1/latestitems/')
+def showLatestItems():
+    items = session.query(Item).limit(5).all()
+    if 'username' not in login_session:
+        return render_template('publiclatestitems.html', items=items)
+    else:
+        return render_template('latestitems.html', items=items)
+
+
 # Create a new category
 @app.route('/v1/categories/new/', methods=['GET', 'POST'])
 def newCategory():
