@@ -8,6 +8,11 @@ picture, embed, object, video {
     display: inline-block;
 }
 
+.block
+{
+    display: block;
+}
+
 
 /* Header */
 .header-container
@@ -40,7 +45,7 @@ picture, embed, object, video {
 /* Sub Header */
 .sub-header
 {
-    height: 35px;
+    height: 60px;
     background-color: rgba(94, 12, 94, 0.952);
     color: white;
     display: flex;
@@ -53,6 +58,89 @@ picture, embed, object, video {
     margin: 0;
     font-size: 25px;
 }
+
+.sub-header .add-new-category-form
+{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .add-new-category-form form
+{
+    width: 100%;
+}
+
+.sub-header .add-new-category-form form button
+{
+    margin: 10px;
+    font-size: 15px;
+}
+
+
+.sub-header .add-new-item-form
+{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .add-new-item-form form
+{
+    width: 100%;
+}
+
+.sub-header .add-new-item-form form button
+{
+    margin: 5px 0 5px 5px;
+    font-size: 15px;
+}
+
+.sub-header .edit-category-form
+{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .edit-category-form form
+{
+    width: 80%;
+}
+
+.sub-header .edit-category-form form button
+{
+    margin: 5px 0 5px 0;
+    font-size: 15px;
+}
+
+.sub-header .delete-category-form
+{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .delete-category-form form
+{
+    width: 80%;
+}
+
+.sub-header .delete-category-form form button
+{
+    margin: 5px 5px 5px 0;
+    font-size: 15px;
+}
+
+
 
 /* Creator info */
 .creator-header
@@ -154,7 +242,6 @@ picture, embed, object, video {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin-right: 6px;
 }
 
 .red-button
@@ -166,7 +253,6 @@ picture, embed, object, video {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin-right: 6px;
 }
 
 .blue-button
@@ -178,7 +264,6 @@ picture, embed, object, video {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin-right: 6px;
 }
 
 
@@ -191,7 +276,7 @@ picture, embed, object, video {
 
 .new-category-form
 {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .new-category-form form
@@ -219,6 +304,52 @@ picture, embed, object, video {
 {
     margin: 10px 0 0 10px;
 }
+
+
+
+/* Add new Item */
+.new-item-form
+{
+    margin-top: 20px;
+}
+
+.new-item-form form
+{
+    width: 100%;
+}
+
+.new-item-form form h3
+{
+    margin-left: 10px;
+}
+
+.new-item-form-input
+{
+    display: flex;
+    align-items: center;
+}
+
+.new-item-form-input input
+{
+    margin: 0 10px 0 10px;
+}
+
+.new-item-form-input textarea
+{
+    margin: 0 10px 0 10px;
+}
+
+.new-item-form form button
+{
+    margin: 10px 0 0 10px;
+}
+
+.new-item-form-radio-buttons
+{
+    margin: 10px 0 0 10px;
+}
+
+
 
 
 /* Form control */

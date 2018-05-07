@@ -9,9 +9,11 @@
 		</form>
 	</div>
 	<div class="sub-header">
-		<form class="inline-block" action="{{url_for('newCategory')}}">
-			<button class="green-button" type="submit">Add New Category</button>
-		</form>
+		<div class="add-new-category-form">
+			<form class="inline-block" action="{{url_for('newCategory')}}">
+				<button class="green-button" type="submit">Add New Category</button>
+			</form>
+		</div>
 	</div>
 </header>
 
@@ -40,4 +42,3 @@
 </section>
 
 {% endblock %}
-
