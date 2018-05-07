@@ -1,77 +1,78 @@
 {% extends "main.html" %}
 {% block content %}
-{% include "header.html" %}
 
-	<div class="row divider green">
-		<div class="col-md-12"></div>
+<header>
+	<div class="header-container">
+		<h1 class="inline-block">Catalog App</h1>
+		<form class="inline-block" action="{{url_for('gdisconnect')}}">
+			<button class="red-button" type="submit">Logout</button>
+		</form>
 	</div>
-	<div class="row banner menu">
-		<div class="col-md-11 col-md-offset-1 padding-none">
-			<h1>Edit Menu Item</h1>
+	<div class="sub-header">
+		<h2>Edit {{item.name}}</h2>
+	</div>
+</header>
+
+<div class="edit-item-form">
+	<form action="#" method = "post">
+		<h3>Name:</h3>
+		<div class="new-item-form-input">
+			<input type ="text" class="form-control" maxlength="80" name="name" placeholder="Name of the item (Mandatory)" value="{{item.name }}">
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-1 padding-top">
-			<form action="#" method = "post">
-				<div class="form-group">
-					<label for="name">Name:</label>
-					<input type ="text" maxlength="80" class="form-control" name="name" value="{{item.name }}">
-
-					<label for="description">Description:</label>
-					<textarea class="form-control" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
-
-					<label for="capacity">Capacity:</label>
-					<input type ="text" maxlength="8" class="form-control" name="capacity" value="{{item.capacity }}">
-
-					<label for="fuelType">Fuel Type:</label>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="fuelType" id="fuelType1" value="Petrol" {% if item.fuelType == 'Petrol'%}checked{%endif%}>Petrol
-					  </label>
-					</div>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="fuelType" id="fuelType2" value="Diesel" {% if item.fuelType == 'Diesel' %}checked{%endif%}>Diesel
-					  </label>
-					</div>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="fuelType" id="fuelType3" value="LOX" {% if item.fuelType == 'LOX'%}checked{%endif%}>LOX
-					  </label>
-					</div>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="fuelType" id="fuelType4" value="Bio" {%if item.fuelType =='Bio'%}checked{%endif%}>Bio
-					  </label>
-					</div>
-					<div class="radio">
-							<label>
-								<input type="radio" name="fuelType" id="fuelType5" value="Other" {%if item.fuelType =='Other'%}checked{%endif%}>Other
-							</label>
-					</div>
-
-					<label for="mileage">Mileage:</label>
-					<input type ="text" maxlength="8" class="form-control" name="mileage" value="{{item.mileage }}">
-
-					<label for="maxSpeed">Max Speed:</label>
-					<input type ="text" maxlength="8" class="form-control" name="maxSpeed" value="{{item.maxSpeed }}">
-
-					<label for="price">Price:</label>
-					<div class="input-group">
-						<div class="input-group-addon">$</div>
-						<input type ="text" maxlength="16" class="form-control" name="price" value="{{item.price}}">
-					</div>
-
-					<button type="submit" class="btn btn-default" id="submit" type="submit">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
-					<a href = '{{url_for('showCategories')}}'>
-						<button class="btn btn-default delete">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
-					</a>
-				</div>
-			</form>
+		<br>
+		<h3>Description:</h3>
+		<div class="new-item-form-input">
+			<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the vehicle">{{item.description}}</textarea>
 		</div>
+		<br>
+		<h3>Capacity:</h3>
+		<div class="new-item-form-input">
+			<input type ="text" maxlength="8" class="form-control" name="capacity" placeholder="No. of people the vehicle can carry." value="{{item.capacity}}">
+		</div>
+		<br>
+		<h3>Fuel Type:</h3>
+		<div class="new-item-form-radio-buttons">
+			<label class="block">
+				<input class="inline-block" type="radio" name="fuelType" value="Petrol" {% if item.fuelType == 'Petrol'%}checked{%endif%}>  Petrol
+			</label>
+			<label class="block">
+				<input class="inline-block" type="radio" name="fuelType" value="Diesel" {% if item.fuelType == 'Diesel'%}checked{%endif%}>  Diesel
+			</label>
+			<label class="block">
+				<input class="inline-block" type="radio" name="fuelType" value="LOX" {% if item.fuelType == 'LOX'%}checked{%endif%}>  LOX
+			</label>
+			<label class="block">
+				<input class="inline-block" type="radio" name="fuelType" value="Bio" {% if item.fuelType == 'Bio'%}checked{%endif%}>  Bio
+			</label>
+			<label class="block">
+				<input class="inline-block" type="radio" name="fuelType" value="Other" {% if item.fuelType == 'Other'%}checked{%endif%}>  Other
+			</label>
+		</div>
+		<br>
+		<h3>Miles:</h3>
+		<div class="new-item-form-input">
+			<input type ="text" maxlength="8" class="form-control" name="mileage" placeholder="Mileage of the vehicle in miles." value="{{item.mileage}}">
+		</div>
+		<br>
+		<h3>Max Speed:</h3>
+		<div class="new-item-form-input">
+			<input type ="text" maxlength="8" class="form-control" name="maxSpeed" placeholder="Max Speed of the vehicle in mph." value="{{item.maxSpeed}}">
+		</div>
+		<br>
+		<h3>Price:</h3>
+		<div class="new-item-form-input">
+				<input type ="text" class="form-control" maxlength="16" name="price" placeholder="Price of the vehicle in $." value="{{item.price}}">
+		</div>
+		<br>
+		<div class="edit-item-form-save-button">
+			<button class="green-button" type="submit">Save</button>
+		</div>
+	</form>
+</div>
+<div class="edit-item-form-cancel-button">
+		<form action="{{url_for('showItems', category_id=category_id, item_id=item_id)}}">
+			<button class="red-button" type="submit">Cancel</button>
+		</form>
 	</div>
-
 
 {% endblock %}
