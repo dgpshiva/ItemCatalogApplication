@@ -344,10 +344,14 @@ def deleteItem(category_id, item_id):
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
+        itemsRemaining = session.query(Item).filter_by(category_id=category_id).count()
+        if itemsRemaining == 0:
         # flash('Item Successfully Deleted')
-        return redirect(url_for('showItems', category_id=category_id))
+            return redirect(url_for('showCategories'))
+        else:
+            return redirect(url_for('showItems', category_id=category_id))
     else:
-        return render_template('deleteitem.html', item=itemToDelete)
+        return render_template('deleteitem.html', item=itemToDelete, category_id=category_id)
 
 
 

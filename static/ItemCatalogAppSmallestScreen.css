@@ -193,6 +193,7 @@ picture, embed, object, video {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 
 .sub-header .sub-header-item-details-buttons .delete-item-form form
@@ -560,6 +561,40 @@ picture, embed, object, video {
 }
 
 
+/* Delete Item */
+.delete-item-form
+{
+    margin-top: 20px;
+}
+
+.delete-item-form form
+{
+    width: 100%;
+}
+
+.delete-item-form form h3
+{
+    margin-left: 10px;
+}
+
+.delete-item-form form .delete-item-form-delete-button
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-item-form-cancel-button
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-item-form-cancel-button form
+{
+    margin: 10px;
+}
 
 
 /* Form control */

@@ -1,16 +1,31 @@
 {% extends "main.html" %}
 {% block content %}
-{% include "header.html" %}
-<h2> Are you sure you want to delete {{item.name}}? </h2>
 
-<form action="#" method = 'post'>
-	<button type="submit" class="btn btn-default delete" id="submit" type="submit">
-</form>
+<header>
+	<div class="header-container">
+		<h1 class="inline-block">Catalog App</h1>
+		<form class="inline-block" action="{{url_for('gdisconnect')}}">
+			<button class="red-button" type="submit">Logout</button>
+		</form>
+	</div>
+	<div class="sub-header">
+		<h2>Delete {{item.name}}</h2>
+	</div>
+</header>
 
-<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
-<a href = '{{url_for('showCategories')}}'>
-	<button class="btn btn-default delete">
-	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
-</a>
+<div class="delete-item-form">
+	<form action="#" method = "post">
+		<h3>Are you sure you want to delete {{item.name}} ?</h3>
+		<br>
+		<div class="delete-item-form-delete-button">
+			<button class="red-button" type="submit">Delete</button>
+		</div>
+	</form>
+</div>
+<div class="delete-item-form-cancel-button">
+	<form action="{{url_for('showItems', category_id=category_id)}}">
+		<button class="green-button" type="submit">Cancel</button>
+	</form>
+</div>
 
 {% endblock %}
