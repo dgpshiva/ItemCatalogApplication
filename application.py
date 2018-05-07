@@ -7,7 +7,7 @@ from oauth2client.client import FlowExchangeError
 from oauth2client.client import flow_from_clientsecrets
 import random
 import requests
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 import string
 
@@ -201,7 +201,7 @@ def showCategories():
 # Show latest items in db
 @app.route('/v1/latestitems/')
 def showLatestItems():
-    items = session.query(Item).limit(5).all()
+    items = session.query(Item).order_by(desc(Item.id)).limit(5).all()
     if 'username' not in login_session:
         return render_template('publiclatestitems.html', items=items)
     else:
