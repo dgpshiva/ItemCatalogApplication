@@ -59,6 +59,7 @@ picture, embed, object, video {
     font-size: 25px;
 }
 
+
 .sub-header .add-new-category-form
 {
     width: 60%;
@@ -139,6 +140,67 @@ picture, embed, object, video {
     margin: 5px 5px 5px 0;
     font-size: 15px;
 }
+
+
+.sub-header .sub-header-item-details-category-name
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .sub-header-item-details-buttons
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .sub-header-item-details-buttons .edit-item-form
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .sub-header-item-details-buttons .edit-item-form form
+{
+    width: 90%;
+}
+
+.sub-header .sub-header-item-details-buttons .edit-item-form form button
+{
+    margin: 5px 0 5px 0;
+    font-size: 15px;
+}
+
+.sub-header .sub-header-item-details-buttons .delete-item-form
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-header .sub-header-item-details-buttons .delete-item-form form
+{
+    width: 90%;
+}
+
+.sub-header .sub-header-item-details-buttons .delete-item-form form button
+{
+    margin: 5px 5px 5px 0;
+    font-size: 15px;
+}
+
+
 
 
 

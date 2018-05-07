@@ -1,12 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+
 <header>
     <div class="header-container">
         <h1 class="inline-block">Catalog App</h1>
-        <form class="inline-block" action="{{url_for('showLogin')}}">
-            <button class="green-button" type="submit">Login</button>
+        <form class="inline-block" action="{{url_for('gdisconnect')}}">
+            <button class="red-button" type="submit">Logout</button>
         </form>
     </div>
     <div class="sub-header">
-        <h2>{{category.name}}</h2>
+        <div class="sub-header-item-details-category-name">
+            <h2>{{category.name}}</h2>
+        </div>
+        <div class="sub-header-item-details-buttons">
+            <div class="edit-item-form">
+                <form class="inline-block" action="{{url_for('editItem', category_id=category.id, item_id=item.id)}}">
+                    <button class="blue-button" type="submit">Edit Item</button>
+                </form>
+            </div>
+            <div class="delete-item-form">
+                <form class="inline-block" action="{{url_for('deleteItem', category_id=category.id, item_id=item.id)}}">
+                    <button class="red-button" type="submit">Delete Item</button>
+                </form>
+            </div>
+        </div>
     </div>
 </header>
 <div class="creator-header">
@@ -14,26 +31,31 @@
 </div>
 <figure class="creator-info">
     <img src="{{ creator.picture}}">
-    <figcaption>{{ creator.name }}</figcaption>
+    <div class="creator-name">
+        <figcaption>{{ creator.name }}</figcaption>
+    </div>
 </figure>
 
-
-{% if items !=[] %}
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-            <h2>Items</h2>
-                {% for i in items %}
-                    <div class="item">
-                        <h3>{{i.name}}</h3>
-                        <p>{{i.description}}</p>
-                        <p>{{i.capacity}}</p>
-                        <p>{{i.fuelType}}</p>
-                        <p>{{i.mileage}}</p>
-                        <p>{{i.maxSpeed}}</p>
-                        <p class="item-price">{{i.price}}</p>
-                    </div>
-                {% endfor %}
-        </div>
-        <div class="col-md-1"></div>
+<div class="item-details">
+    <div class="item-name-header">
+        <h3>{{item.name}}</h3>
     </div>
+    <h4>Item Description:</h4>
+    <p>{{item.description}}</p>
+    <br>
+    <h4>Item Capacity:</h4>
+    <p>{{item.capacity}} people</p>
+    <br>
+    <h4>Item Fuel Type:</h4>
+    <p>{{item.fuelType}}</p>
+    <br>
+    <h4>Item Mileage:</h4>
+    <p>{{item.mileage}} miles</p>
+    <br>
+    <h4>Item Max Speed:</h4>
+    <p>{{item.maxSpeed}} mph</p>
+    <br>
+    <h4>Item Price:</h4>
+    <p>{{item.price}} $</p>
+</div>
+{% endblock %}
