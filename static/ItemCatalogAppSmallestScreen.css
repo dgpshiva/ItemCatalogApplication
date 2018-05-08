@@ -23,7 +23,12 @@ picture, embed, object, video {
     align-items: center
 }
 
-.header-container h1
+.header-container a
+{
+    width: 70%;
+}
+
+.header-container a h1
 {
     color: white;
     font-size: 25px;
@@ -254,7 +259,7 @@ picture, embed, object, video {
 
 
 /* Sign in page */
-.signin-cancel-buttons-viewport
+.signin-buttons-viewport
 {
     height: 100vh;
     display: flex;
@@ -262,12 +267,12 @@ picture, embed, object, video {
     justify-content: center;
 }
 
-.signin-cancel-buttons-container
+.signin-buttons-container
 {
     margin: 0px;
 }
 
-.signin-cancel-buttons-container form button
+.signin-buttons-container form button
 {
     width: 100%;
 }

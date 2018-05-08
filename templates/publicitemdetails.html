@@ -3,7 +3,9 @@
 
 <header>
     <div class="header-container">
-        <h1 class="inline-block">Catalog App</h1>
+        <a href="{{url_for('showCategories')}}">
+            <h1 class="inline-block">Catalog App</h1>
+        </a>
         <form class="inline-block" action="{{url_for('showLogin')}}">
             <button class="green-button" type="submit">Login</button>
         </form>

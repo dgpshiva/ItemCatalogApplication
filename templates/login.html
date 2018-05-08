@@ -2,8 +2,8 @@
 {% block content %}
 
 <!-- GOOGLE PLUS SIGN IN-->
-<div class="signin-cancel-buttons-viewport">
-  <div class="signin-cancel-buttons-container">
+<div class="signin-buttons-viewport">
+  <div class="signin-buttons-container">
     <div id="signinButton">
       <span class="g-signin"
         data-scope="openid email"
@@ -15,7 +15,7 @@
         data-approvalprompt="force">
       </span>
     </div>
-    <form action="{{url_for('showCategories')}}">
+    <form id="siginCancelButton" action="{{url_for('showCategories')}}">
         <button class="red-button" type="submit">Cancel</button>
     </form>
   </div>
@@ -31,6 +31,7 @@ function signInCallback(authResult)
   {
     // Hide the sign-in button now that the user is authorized
     $('#signinButton').attr('style', 'display: none');
+    $('#siginCancelButton').attr('style', 'display: none');
 
     // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main categories page
     $.ajax
