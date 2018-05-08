@@ -51,7 +51,7 @@ picture, embed, object, video {
 /* Sub Header */
 .sub-header
 {
-    height: 6em;
+    height: 6.5em;
     background-color: rgba(94, 12, 94, 0.952);
     color: white;
     display: flex;
@@ -65,10 +65,9 @@ picture, embed, object, video {
     font-size: 3em;
 }
 
-
 .sub-header .add-new-category-form
 {
-    width: 60%;
+    width: 80%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -81,7 +80,7 @@ picture, embed, object, video {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 30%;
     margin: 0;
 }
 
@@ -90,7 +89,6 @@ picture, embed, object, video {
     margin: 0;
     font-size: 2em;
 }
-
 
 .sub-header .add-new-item-form
 {
@@ -117,7 +115,6 @@ picture, embed, object, video {
     font-size: 25px;
 }
 
-
 .sub-header .edit-category-form
 {
     width: 33%;
@@ -142,7 +139,6 @@ picture, embed, object, video {
     margin: 5px 5px 5px 5px;
     font-size: 25px;
 }
-
 
 .sub-header .delete-category-form
 {
@@ -231,9 +227,6 @@ picture, embed, object, video {
 }
 
 
-
-
-
 /* Creator info */
 .creator-header
 {
@@ -304,7 +297,6 @@ div#signinButton
     align-items: center;
     justify-content: center;
 }
-
 
 .signin-buttons-viewport .signin-buttons-container form button
 {

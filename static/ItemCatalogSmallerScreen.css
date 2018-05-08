@@ -65,7 +65,6 @@ picture, embed, object, video {
     font-size: 3em;
 }
 
-
 .sub-header .add-new-category-form
 {
     width: 60%;
@@ -90,7 +89,6 @@ picture, embed, object, video {
     margin: 0;
     font-size: 2em;
 }
-
 
 .sub-header .add-new-item-form
 {
@@ -143,7 +141,6 @@ picture, embed, object, video {
     font-size: 25px;
 }
 
-
 .sub-header .delete-category-form
 {
     width: 33%;
@@ -168,7 +165,6 @@ picture, embed, object, video {
     margin: 5px 5px 5px 0;
     font-size: 25px;
 }
-
 
 .sub-header .sub-header-item-details-category-name
 {
@@ -231,9 +227,6 @@ picture, embed, object, video {
 }
 
 
-
-
-
 /* Creator info */
 .creator-header
 {
@@ -293,22 +286,29 @@ div#signinButton
 .signin-buttons-viewport .signin-buttons-container
 {
     margin: 0px;
+    width: 116px;
 }
 
-.signin-buttons-viewport .signin-buttons-container #signinButton
+.signin-buttons-viewport .signin-buttons-container form
 {
-    height: 50%;
+    height: 45px;
+    width: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.signin-buttons-viewport .signin-buttons-container #signinButton button
+.signin-buttons-viewport .signin-buttons-container form button
 {
-    height: 50%;
-    width: 100%;
-}
-
-.signin-buttons-viewport .signin-buttons-container #siginCancelButton
-{
-    height: 50%;
+    margin: 0;
+    height: 36px;
+    width: 116px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 
