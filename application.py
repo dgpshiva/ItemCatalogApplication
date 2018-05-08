@@ -366,24 +366,24 @@ def deleteItem(category_id, item_id):
 
 
 
-# # JSON APIs to view Restaurant Information
-# @app.route('/restaurant/<int:restaurant_id>/menu/JSON')
-# def restaurantMenuJSON(restaurant_id):
-#     items = session.query(MenuItem).filter_by(
-#         restaurant_id=restaurant_id).all()
-#     return jsonify(MenuItems=[i.serialize for i in items])
+# JSON APIto view Categories
+@app.route('/api/v1/categories/JSON')
+def categoriesJSON():
+    categories = session.query(Category).all()
+    return jsonify(categories=[c.serialize for c in categories])
 
+# JSON API to view Items given a Category
+@app.route('/api/v1/categories/<int:category_id>/items/JSON')
+def categoryItemsJSON(category_id):
+    items = session.query(Item).filter_by(
+        category_id=category_id).all()
+    return jsonify(items=[i.serialize for i in items])
 
-# @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/JSON')
-# def menuItemJSON(restaurant_id, menu_id):
-#     Menu_Item = session.query(MenuItem).filter_by(id=menu_id).one()
-#     return jsonify(Menu_Item=Menu_Item.serialize)
-
-
-# @app.route('/restaurant/JSON')
-# def restaurantsJSON():
-#     restaurants = session.query(Restaurant).all()
-#     return jsonify(restaurants=[r.serialize for r in restaurants])
+# JSON API to view Items given a Category
+@app.route('/api/v1/categories/<int:category_id>/items/<int:item_id>/JSON')
+def itemJSON(category_id, item_id):
+    item = session.query(Item).filter_by(id=item_id).one()
+    return jsonify(item=item.serialize)
 
 
 
@@ -392,4 +392,3 @@ if __name__ == '__main__':
     app.debug = True
     #app.run(host='0.0.0.0', port=8000)
     app.run(host='127.0.0.1', port=8000)
-
