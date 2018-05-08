@@ -16,60 +16,60 @@
       </span>
     </div>
     <form id="siginCancelButton" action="{{url_for('showCategories')}}">
-        <button class="red-button" type="submit">Cancel</button>
+        <button type="submit">Cancel</button>
     </form>
   </div>
-</div>
 
 
-<div id="result"></div>
+  <div id="result"></div>
 
-<script>
-function signInCallback(authResult)
-{
-  if (authResult['code'])
+  <script>
+  function signInCallback(authResult)
   {
-    // Hide the sign-in button now that the user is authorized
-    $('#signinButton').attr('style', 'display: none');
-    $('#siginCancelButton').attr('style', 'display: none');
+    if (authResult['code'])
+    {
+      // Hide the sign-in button now that the user is authorized
+      $('#signinButton').attr('style', 'display: none');
+      $('#siginCancelButton').attr('style', 'display: none');
 
-    // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main categories page
-    $.ajax
-    (
-      {
-        type: 'POST',
-        url: '/gconnect?state={{STATE}}',
-        processData: false,
-        data: authResult['code'],
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result)
+      // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page
+      // and then redirect back to the main categories page
+      $.ajax
+      (
         {
-          // Handle or verify the server response if necessary.
-          if (result)
+          type: 'POST',
+          url: '/gconnect?state={{STATE}}',
+          processData: false,
+          data: authResult['code'],
+          contentType: 'application/octet-stream; charset=utf-8',
+          success: function(result)
           {
-            $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
-            setTimeout(function()
+            // Handle or verify the server response if necessary.
+            if (result)
             {
-              window.location.href = "/v1/categories";
-            }, 4000);
+              $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+              setTimeout(function()
+              {
+                window.location.href = "/v1/categories";
+              }, 4000);
 
+            }
+            else if (authResult['error'])
+            {
+              console.log('There was an error: ' + authResult['error']);
+            }
+            else
+            {
+              $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+            }
           }
-          else if (authResult['error'])
-          {
-            console.log('There was an error: ' + authResult['error']);
-          }
-          else
-          {
-            $('#result').html('Failed to make a server-side call. Check your configuration and console.');
-          }
+
         }
-
-      }
-    );
+      );
+    }
   }
-}
-</script>
-
+  </script>
+</div>
 <!--END GOOGLE PLUS SIGN IN -->
 
 {% endblock %}

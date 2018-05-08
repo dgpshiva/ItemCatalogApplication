@@ -293,23 +293,32 @@ div#signinButton
 .signin-buttons-viewport .signin-buttons-container
 {
     margin: 0px;
+    width: 116px;
 }
 
-.signin-buttons-viewport .signin-buttons-container #signinButton
+.signin-buttons-viewport .signin-buttons-container form
 {
-    height: 50%;
+    height: 45px;
+    width: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.signin-buttons-viewport .signin-buttons-container #signinButton button
+
+.signin-buttons-viewport .signin-buttons-container form button
 {
-    height: 50%;
-    width: 100%;
+    margin: 0;
+    height: 36px;
+    width: 116px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.signin-buttons-viewport .signin-buttons-container #siginCancelButton
-{
-    height: 50%;
-}
 
 
 /* Buttons */
