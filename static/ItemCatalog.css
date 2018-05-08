@@ -258,8 +258,8 @@ picture, embed, object, video {
 
 .creator-info img
 {
-    height: 25%;
-    width: 25%;
+    height: 15%;
+    width: 15%;
     margin-bottom: 2px;
 }
 
@@ -361,7 +361,7 @@ div#signinButton
 .new-category-form form h3
 {
     margin: 0 0 40px 40px;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .new-category-form-input
@@ -373,15 +373,16 @@ div#signinButton
 .new-category-form-input input
 {
     margin: 0 40px 0 40px;
-    height: 5em;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
 }
 
 .new-category-form-input input::-webkit-input-placeholder
 {
-    font-size: 2em;
+    font-size: 30px;
 }
 
 .new-category-form form button
@@ -404,7 +405,7 @@ div#signinButton
 .edit-category-form form h3
 {
     margin: 0 0 20px 40px;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .edit-category-form-input
@@ -416,15 +417,16 @@ div#signinButton
 .edit-category-form-input input
 {
     margin: 0 40px 0 40px;
-    height: 5em;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
 }
 
 .edit-category-form-input input::-webkit-input-placeholder
 {
-    font-size: 2em;
+    font-size: 30px;
 }
 
 .edit-category-form form .edit-category-form-save-button

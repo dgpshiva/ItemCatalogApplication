@@ -249,10 +249,13 @@ def deleteCategory(category_id):
         return redirect('/v1/login')
     categoryToDelete = session.query(
         Category).filter_by(id=category_id).one()
+    itemsToDelete = session.query(Item).filter_by(category_id=categoryToDelete.id).all()
     if categoryToDelete.user_id != login_session['user_id']:
         return "<script>function myFunction() {alert('You are not authorized to delete this category. Please create your own category to delete.');}</script><body onload='myFunction()''>''"
     if request.method == 'POST':
         session.delete(categoryToDelete)
+        for item in itemsToDelete:
+            session.delete(item)
         # flash('%s Successfully Deleted' % categoryToDelete.name)
         session.commit()
         return redirect(url_for('showCategories'))
@@ -265,21 +268,20 @@ def deleteCategory(category_id):
 @app.route('/v1/categories/<int:category_id>/items/')
 def showItems(category_id):
     category = session.query(Category).filter_by(id=category_id).one()
-    creator = getUserInfo(category.user_id)
     items = session.query(Item).filter_by(
         category_id=category_id).all()
-    if 'username' not in login_session or creator.id != login_session['user_id']:
-        return render_template('publicitems.html', items=items, category=category, creator=creator)
+    if 'username' not in login_session:
+        return render_template('publicitems.html', items=items, category=category)
     else:
-        return render_template('items.html', items=items, category=category, creator=creator)
+        return render_template('items.html', items=items, category=category)
 
 
 # Show an item
 @app.route('/v1/categories/<int:category_id>/items/<int:item_id>')
 def showItemDetails(category_id, item_id):
     category = session.query(Category).filter_by(id=category_id).one()
-    creator = getUserInfo(category.user_id)
     item = session.query(Item).filter_by(id=item_id).one()
+    creator = getUserInfo(item.user_id)
     if 'username' not in login_session or creator.id != login_session['user_id']:
         return render_template('publicitemdetails.html', item=item, category=category, creator=creator)
     else:
@@ -291,7 +293,6 @@ def showItemDetails(category_id, item_id):
 def newItem(category_id):
     if 'username' not in login_session:
         return redirect('/v1/login')
-    category = session.query(Category).filter_by(id=category_id).one()
     if request.method == 'POST':
         newItem = Item( name=request.form['name'],
                         description=request.form['description'],
@@ -300,7 +301,7 @@ def newItem(category_id):
                         mileage=request.form['mileage'],
                         maxSpeed=request.form['maxSpeed'],
                         price=request.form['price'],
-                        category_id=category_id, user_id=category.user_id)
+                        category_id=category_id, user_id=login_session['user_id'])
         session.add(newItem)
         session.commit()
         # flash('New Item %s Successfully Created' % (newItem.name))
