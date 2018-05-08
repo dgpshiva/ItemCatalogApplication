@@ -47,6 +47,11 @@ def showLogin():
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
+    """ Authenticate user using Google oAuth2
+    And if success display timeout welcome message
+    before redirecting to home page
+    """
+
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
