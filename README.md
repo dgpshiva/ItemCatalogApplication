@@ -20,7 +20,7 @@ This repository contains code to host an Item Catalog web application. The Item 
 
 ## Running the code
 ### To run the application on local machine:
-- Pull the code from branch 'release-v1' of this repository
+- Pull the code from branch [release-v1](https://github.com/dgpshiva/ItemCatalogApplication/tree/release-v1) of this repository
 - Navigate to the folder /ItemCatalogApplication using terminal (for Mac) or command prompt (for Windows)
 - Run the python code [database_setup.py](./database_setup.py) using the command `python database_setup.py`
 - This should create a file named "transportitemswithusers.db" in the same folder as [database_setup.py](./database_setup.py)
@@ -32,7 +32,7 @@ This repository contains code to host an Item Catalog web application. The Item 
 ### To run the application on vagrant machine:
 - Download and install Vagrant for [Windows](https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.msi) or [Mac](https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.dmg)
 - Download and install Virtual Box for [Windows](https://download.virtualbox.org/virtualbox/5.1.36/VirtualBox-5.1.36-122416-Win.exe) or [Mac](https://download.virtualbox.org/virtualbox/5.1.36/VirtualBox-5.1.36-122089-OSX.dmg)
-- Pull the code from 'release-v1' branch of this repository
+- Pull the code from [release-v1](https://github.com/dgpshiva/ItemCatalogApplication/tree/release-v1) branch of this repository
 - Open the file [application.py](./application.py) under /ItemCatalogApplication folder
 - Comment out the last line `app.run(host='127.0.0.1', port=8000)`
 - Uncomment the line `app.run(host='0.0.0.0', port=8000)`
