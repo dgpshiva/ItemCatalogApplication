@@ -8,6 +8,7 @@ This repository contains code to host an Item Catalog web application. The Item 
 - [Running the code](#running-the-code)
 - [Navigating the application](#navigating-the-application)
 - [Stopping the code](#stopping-the-code)
+- [API endpoints](#api-endpoints)
 - [Known issues](#known-issues)
 - [References](#references)
 
@@ -77,6 +78,12 @@ This repository contains code to host an Item Catalog web application. The Item 
 - Run the command `vagrant halt` to stop the vagrant machine
 - Close the open terminal/command prompt window
 
+
+## API endpoints
+The application provides 3 API endpoints to get information from the app database in JSON
+1. /api/v1/categories/JSON - This endpoint returns details of all the categories in the app database
+2. /api/v1/categories/<int:category_id>/items/JSON - This endpoint returns details about all the items under the category with the provided category_id
+3. /api/v1/categories/<int:category_id>/items/<int:item_id>/JSON - This endpoint provides details about the item with the provided item_id under the category with the provided category_id
 
 ## Known issues
 - On a mac, trying to run the app again (after having stopped it) using the command `python application.py` may throw an error that the port 8000 is already in use
