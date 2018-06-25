@@ -27,9 +27,14 @@ APPLICATION_NAME = "Item Catalog Application"
 
 
 # Connect to Database and create database session
+# For sqlite connection
+# engine = create_engine(
+#     'sqlite:///transportitemswithusers.db',
+#     connect_args={'check_same_thread': False})
+
+# For postgresql connection
 engine = create_engine(
-    'sqlite:///transportitemswithusers.db',
-    connect_args={'check_same_thread': False})
+            'postgresql+psycopg2://catalog:@localhost/transportitemswithusers')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -442,8 +447,12 @@ def itemJSON(category_id, item_id):
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    # Uncomment this line if running on vagrant machine
-    # app.run(host='0.0.0.0', port=8000)
 
-    # Comment out this line if running on vagrant machine
-    app.run(host='127.0.0.1', port=8000)
+    # Uncomment only if running on linux deployment
+    app.run(host='0.0.0.0', port=80)
+
+    # Uncomment only if running on vagrant machine
+    #app.run(host='0.0.0.0', port=8000)
+
+    # Uncomment only if running on local machine
+    #app.run(host='127.0.0.1', port=8000)

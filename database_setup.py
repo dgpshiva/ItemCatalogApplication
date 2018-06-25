@@ -64,7 +64,7 @@ class Item(Base):
         }
 
 
-engine = create_engine('sqlite:///transportitemswithusers.db')
+engine = create_engine('postgresql+psycopg2://catalog:@localhost/transportitemswithusers')
 
 
 Base.metadata.create_all(engine)
