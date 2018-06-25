@@ -445,14 +445,5 @@ def itemJSON(category_id, item_id):
 
 
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
-    app.debug = True
-
-    # Uncomment only if running on linux deployment
-    app.run(host='0.0.0.0', port=80)
-
-    # Uncomment only if running on vagrant machine
-    #app.run(host='0.0.0.0', port=8000)
-
-    # Uncomment only if running on local machine
-    #app.run(host='127.0.0.1', port=8000)
+    app.debug = False
+    app.run()
