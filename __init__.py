@@ -21,6 +21,8 @@ auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 
+# NOTE: The 'client_secrets.json' needs to be replaced
+# with full path to the file on the server
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Item Catalog Application"
@@ -67,6 +69,8 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
+        # NOTE: The 'client_secrets.json' needs to be replaced
+        # with full path to the file on the server
         oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
